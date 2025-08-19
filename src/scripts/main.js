@@ -12,13 +12,16 @@ function setFormsInfo(list) {
 
     const input = field.children[0];
     const inputId = input.getAttribute('id');
+    const inputName = input.getAttribute('name');
+    const capitalizedName =
+      inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
-    input.placeholder = input.getAttribute('name');
+    input.placeholder = capitalizedName;
 
     const label = document.createElement('label');
 
     label.setAttribute('for', inputId);
-    label.textContent = input.getAttribute('name');
+    label.textContent = capitalizedName;
     label.classList = 'field-label';
 
     input.before(label);
